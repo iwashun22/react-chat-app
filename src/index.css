@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, body {
+   margin: 0;
+   padding: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+   --background-color1: hsl(0, 0%, 83%);
+   --background-color2: hsl(240, 22%, 93%);
+   --background-color3: rgb(26, 26, 26);
+   --background-color4: rgb(0, 0, 0);
+   --btn-background-color: rgb(2, 149, 218);
+   --btn-color: white;
+   --header-color: hsl(226, 55%, 50%);
+}
+
+#root {
+   width: 100vw;
+   height: 100vh;
+   background-color: var(--background-color4);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   color: var(--header-color);
+   text-transform: capitalize;
+}
+
+.header {
+   margin: 10px 0;
+   padding-bottom: 15px;
+   border-bottom: 2px var(--header-color) solid;
+   text-align: center;
+}
+
+.joinOuterContainer {
+   width: 85vw;
+   height: 85vh;
+   border-radius: 50px;
+   background-color: var(--background-color3);
+   padding: 20px;
+}
+
+.joinInnerContainer {
+   width: 100%;
+   height: 100%;
 }

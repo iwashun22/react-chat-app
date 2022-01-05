@@ -1,0 +1,31 @@
+.center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.container input {
+   outline: none;
+   text-align: center;
+   font-size: 24px;
+   margin: 10px 10px;
+   border-radius: 20px;
+   padding: 2px 0;
+   border: 2px black solid;
+}
+.container input:focus {
+   border: 2px green solid;
+}
+
+.btn {
+   padding: 8px 15px;
+   font-size: 20px;
+   background-color: var(--btn-background-color);
+   text-align: center;
+   color: var(--btn-color);
+   border: 0;
+   border-radius: 10px;
+   box-shadow: 2px 2px 4px black;
+   text-transform: capitalize;
+}

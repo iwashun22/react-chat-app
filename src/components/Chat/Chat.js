@@ -9,7 +9,7 @@ const Chat = () => {
    const [name, setName] = useState('');
    const [room, setRoom] = useState('');
    const location = useLocation();
-   const ENDPOINT = 'localhost:3000';
+   const ENDPOINT = 'localhost:8282';
    useEffect(() => {
       console.log(location.search);
       const { name, room } = queryString.parse(location.search);

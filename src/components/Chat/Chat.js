@@ -11,7 +11,7 @@ const Chat = () => {
    const location = useLocation();
    const ENDPOINT = 'localhost:8282';
    useEffect(() => {
-      console.log(location.search);
+      // console.log(location.search);
       const { name, room } = queryString.parse(location.search);
 
       socket = io(ENDPOINT);
@@ -20,7 +20,16 @@ const Chat = () => {
       console.log(socket);
       setName(name);
       setRoom(room);
-   })
+
+      socket.emit('join', { name, room }, () => {
+
+      });
+
+      return () => {
+         socket.emit('disconnect');
+         socket.off();
+      }
+   }, [ENDPOINT, location.search])
    return (
       <h1>Chat</h1>
    )

@@ -16,7 +16,7 @@ const Chat = () => {
 
       socket = io(ENDPOINT);
 
-      console.log(name, room);
+      console.log(`${name} has join the room ${room}`);
       console.log(socket);
       setName(name);
       setRoom(room);

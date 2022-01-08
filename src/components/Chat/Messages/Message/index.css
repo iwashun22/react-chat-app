@@ -1,0 +1,17 @@
+.messageContainer {
+   display: flex;
+   flex-direction: column;
+   margin: 10px 0;
+}
+
+.messageText {
+   display: inline;
+   background-color: blue;
+   color: rgb(172, 172, 172);
+   padding: 10px 10px;
+   border-radius: 12px;
+}
+
+.messageBox {
+   margin: 10px 0;
+}

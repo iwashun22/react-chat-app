@@ -1,5 +1,29 @@
 .chatForm {
    position: absolute;
+   width: 100%;
    bottom: 0;
    top: 100;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+}
+
+.chatForm .input {
+   outline: none;
+   width: 60vw;
+   padding: 0 15px;
+   height: 100%;
+   border: none;
+   margin-right: 2vw;
+   border-radius: 15px;
+}
+
+.chatForm .sendButton {
+   border: none;
+   background-color: var(--btn-background-color);
+   color: var(--btn-color);
+   line-height: 100%;
+   padding: 0 15px;
+   border: 2px white solid;
+   border-radius: 15px;
 }

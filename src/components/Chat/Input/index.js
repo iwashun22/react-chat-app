@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './index.css'
+
 const index = ({message, setMessage, sendMessage}) => {
    return (
       <form className='chatForm'>

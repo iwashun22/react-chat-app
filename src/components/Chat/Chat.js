@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 
 import ChatPage from './ChatPage'
 import Input from './Input'
+import Messages from './Messages'
 
 import './Chat.css'
 
@@ -65,6 +66,7 @@ const Chat = () => {
          <div className="chatContainer">
             <div className="chatInnerContainer">
                <ChatPage room={room}/>
+               <Messages messages={messages} name={name}/>
                <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
             </div>
          </div>

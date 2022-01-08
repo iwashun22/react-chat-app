@@ -3,11 +3,17 @@ import { useLocation } from 'react-router-dom'
 import queryString from 'query-string';
 import io from 'socket.io-client';
 
+import ChatPage from './ChatPage'
+
+import './Chat.css'
+
 let socket;
 
 const Chat = () => {
    const [name, setName] = useState('');
    const [room, setRoom] = useState('');
+   const [message, setMessage] = useState('');
+   const [messages, setMessages] = useState([]);
    const location = useLocation();
    const ENDPOINT = 'localhost:8282';
    useEffect(() => {
@@ -21,8 +27,13 @@ const Chat = () => {
       setName(name);
       setRoom(room);
 
-      socket.emit('join', { name, room }, () => {
-
+      socket.emit('join', { name, room }, (error) => {
+         if(error) {
+            alert(error);
+         }
+         else {
+            console.log('successfully join');
+         }
       });
 
       return () => {
@@ -30,8 +41,34 @@ const Chat = () => {
          socket.off();
       }
    }, [ENDPOINT, location.search])
+
+   useEffect(() => {
+      socket.on('message', (message) => {
+         setMessages([...messages, message]);
+      })
+   }, [messages]);
+
+   const sendMessage = (e) => {
+      e.preventDefault();
+      if(message) {
+         socket.emit('sendMessage', message, () => {
+            setMessage('');
+         })
+      }
+   }
+
+   console.log(message, messages);
+
    return (
-      <h1>Chat</h1>
+      <>
+         <div className="chatContainer">
+            <div>
+               <ChatPage room={room}/>
+               <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' ? sendMessage(e) : null}/>
+               <button onClick={(e) => sendMessage(e)}>send</button>
+            </div>
+         </div>
+      </>
    )
 }
 

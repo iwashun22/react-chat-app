@@ -10,7 +10,7 @@ const Join = () => {
    return (
      <>
        <div className="joinOuterContainer">
-         <div className="joinInnerContainer container center">
+         <div className="joinInnerContainer center">
            <h2 className="header">join chat room</h2>
            <div>
              <input

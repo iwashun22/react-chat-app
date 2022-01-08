@@ -5,7 +5,7 @@
    flex-direction: column;
 }
 
-.container input {
+.joinInnerContainer input {
    outline: none;
    text-align: center;
    font-size: 24px;
@@ -14,7 +14,7 @@
    padding: 2px 0;
    border: 2px black solid;
 }
-.container input:focus {
+.joinInnerContainer input:focus {
    border: 2px green solid;
 }
 

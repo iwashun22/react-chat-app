@@ -1,0 +1,7 @@
+.chatContainer {
+   background-color: var(--background-color3);
+   width: 80vw;
+   height: 90vh;
+   border-radius: 5vh;
+   padding: 20px;
+}

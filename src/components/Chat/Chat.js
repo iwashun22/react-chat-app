@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 
 import ChatPage from './ChatPage'
+import Input from './Input'
 
 import './Chat.css'
 
@@ -62,10 +63,9 @@ const Chat = () => {
    return (
       <>
          <div className="chatContainer">
-            <div>
+            <div className="chatInnerContainer">
                <ChatPage room={room}/>
-               <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} onKeyPress={(e) => e.key === 'Enter' ? sendMessage(e) : null}/>
-               <button onClick={(e) => sendMessage(e)}>send</button>
+               <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
             </div>
          </div>
       </>

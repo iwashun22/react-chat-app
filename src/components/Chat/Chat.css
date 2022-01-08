@@ -5,3 +5,9 @@
    border-radius: 5vh;
    padding: 20px;
 }
+
+.chatInnerContainer {
+   position: relative;
+   height: 100%;
+   width: 100%;
+}

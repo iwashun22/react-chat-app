@@ -1,0 +1,25 @@
+.red {
+   color: red;
+}
+
+.green {
+   color: green;
+}
+
+.infoBar {
+   display: flex;
+   justify-content: center;
+   height: 40px;
+   background-color: var(--background-color4);
+   border-bottom: 2px var(--background-color1) solid;
+}
+
+.infoItem {
+   flex: 1;
+   line-height: 40px;
+   text-align: center;
+}
+
+.navItem:hover {
+   background-color: var(--background-color5);
+}

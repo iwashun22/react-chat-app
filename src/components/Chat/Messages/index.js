@@ -1,13 +1,11 @@
 import React from 'react';
-import ScrollToBottom from 'react-scroll-to-bottom';
 
 import Message from './Message';
 import './index.css'
 
 const index = ({ messages, name }) => {
    return (
-      <ScrollToBottom>
-         <div className="messageArea">
+      <div className="messageArea">
          {
             messages.map((msg, i) => {
                return (
@@ -17,8 +15,7 @@ const index = ({ messages, name }) => {
                );
             })
          }
-         </div>
-      </ScrollToBottom>
+      </div>
    )
 }
 

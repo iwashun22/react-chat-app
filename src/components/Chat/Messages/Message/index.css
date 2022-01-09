@@ -15,11 +15,18 @@
 
 .messageText {
    display: inline-block;
-   background-color: blue;
    color: rgb(223, 223, 223);
    padding: 10px 10px;
    border-radius: 12px;
    max-width: 45vw;
+}
+
+.left .messageText {
+   background-color: rgb(166, 57, 255);
+}
+
+.right .messageText {
+   background-color: rgb(55, 55, 255);
 }
 
 .sentText {

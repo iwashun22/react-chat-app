@@ -1,4 +1,23 @@
 .messageArea {
-   min-height: 50vh;
-   padding: 20px;
+   height: 65vh;
+   margin-top: 20px;
+   overflow-y: scroll;
+   background-color: var(--background-color5);
+   border-radius: 15px;
+}
+
+.messageArea::-webkit-scrollbar {
+   width: 0;
+}
+
+@media screen and (min-width: 375px) {
+   .messageArea {
+      padding: 10px;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .messageArea {
+      padding: 20px;
+   }
 }

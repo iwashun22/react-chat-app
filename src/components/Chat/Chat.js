@@ -14,6 +14,7 @@ let socket;
 const Chat = () => {
    const [name, setName] = useState('');
    const [room, setRoom] = useState('');
+   const [users, setUsers] = useState([]);
    const [message, setMessage] = useState('');
    const [messages, setMessages] = useState([]);
    const location = useLocation();
@@ -54,10 +55,20 @@ const Chat = () => {
       })
    }, [messages]);
 
+   useEffect(() => {
+      socket.on('new user', ({ users }) => {
+         setUsers([...users]);
+      })
+      // console.log(users);
+   }, [users]);
+
    const sendMessage = useCallback((e) => {
       e.preventDefault();
       if(message) {
-         socket.emit('sendMessage', message, () => {
+         socket.emit('sendMessage', message, (err) => {
+            if(err) {
+               return alert(err);
+            }
             setMessage('');
          })
       }
@@ -69,7 +80,7 @@ const Chat = () => {
       <>
          <div className="chatContainer">
             <div className="chatInnerContainer">
-               <ChatPage room={room}/>
+               <ChatPage room={room} users={users}/>
                <Messages messages={messages} name={name}/>
                <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
             </div>

@@ -1,0 +1,35 @@
+.usersBox {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 80vw;
+   height: 50vh;
+   background-color: rgba(20, 20, 20, 0.904);
+   padding: 20px 10px;
+   overflow-y: scroll;
+}
+
+.usersBox::-webkit-scrollbar {
+   width: 0;
+}
+
+.usersPopUpHeader {
+   text-align: center;
+   color: white;
+   margin: 10px 0;
+}
+
+.userList {
+   text-align: center;
+   font-size: 24px;
+   color: rgb(223, 223, 0);
+   font-weight: 700;
+}
+
+#closePopUpButton {
+   font-size: 30px;
+   display: block;
+   text-align: center;
+   margin-top: 10px;
+}

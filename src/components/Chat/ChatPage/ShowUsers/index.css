@@ -7,10 +7,21 @@
    height: 50vh;
    background-color: rgba(20, 20, 20, 0.904);
    padding: 20px 10px;
+}
+
+.innerUsersBox {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+
+.usersListScrollArea {
+   margin-top: 20px;
+   max-height: 60%;
    overflow-y: scroll;
 }
 
-.usersBox::-webkit-scrollbar {
+.usersListScrollArea::-webkit-scrollbar {
    width: 0;
 }
 
@@ -29,7 +40,8 @@
 
 #closePopUpButton {
    font-size: 30px;
-   display: block;
-   text-align: center;
-   margin-top: 10px;
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
 }

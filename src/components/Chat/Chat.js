@@ -25,7 +25,7 @@ const Chat = () => {
       socket = io(ENDPOINT);
 
       console.log(`${name} has join the room ${room}`);
-      console.log(socket);
+      // console.log(socket);
       setName(name);
       setRoom(room);
 
@@ -46,7 +46,11 @@ const Chat = () => {
 
    useEffect(() => {
       socket.on('message', (message) => {
-         setMessages([...messages, message]);
+         if(messages.length >= 10) {
+            const [removed, ...rest] = messages;
+            setMessages([...rest, message]);
+         }
+         else setMessages([...messages, message]);
       })
    }, [messages]);
 
@@ -59,7 +63,7 @@ const Chat = () => {
       }
    });
 
-   console.log(message, messages);
+   // console.log(message, messages);
 
    return (
       <>

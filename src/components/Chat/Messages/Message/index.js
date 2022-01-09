@@ -15,7 +15,7 @@ const index = ({ message, name}) => {
        <div className="messageBox">
          <p className="messageText">{message.text}</p>
        </div>
-       <p className="sentText">{trimmedName}</p>
+       <p className="sentText">you</p>
      </div>
    ) : (
      <div className="messageContainer left">

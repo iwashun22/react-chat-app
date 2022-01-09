@@ -6,6 +6,7 @@
    width: 80vw;
    height: 50vh;
    background-color: rgba(20, 20, 20, 0.904);
+   border: 4px rgba(35, 205, 228, 0.589) solid;
    padding: 20px 10px;
 }
 
@@ -27,7 +28,7 @@
 
 .usersPopUpHeader {
    text-align: center;
-   color: white;
+   color: rgb(224, 224, 224);
    margin: 10px 0;
 }
 
@@ -36,6 +37,7 @@
    font-size: 24px;
    color: rgb(223, 223, 0);
    font-weight: 700;
+   margin: 7px 0;
 }
 
 #closePopUpButton {

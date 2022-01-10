@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation, Navigate } from 'react-router-dom'
 import queryString from 'query-string';
 import io from 'socket.io-client';
 
@@ -13,6 +13,7 @@ let socket;
 
 const Chat = () => {
    const [name, setName] = useState('');
+   const [redirect, setRedirect] = useState(false);
    const [room, setRoom] = useState('');
    const [users, setUsers] = useState([]);
    const [message, setMessage] = useState('');
@@ -25,16 +26,18 @@ const Chat = () => {
 
       socket = io(ENDPOINT);
 
-      console.log(`${name} has join the room ${room}`);
       // console.log(socket);
       setName(name);
       setRoom(room);
 
       socket.emit('join', { name, room }, (error) => {
          if(error) {
-            alert(error);
+            if(window.confirm(error)){
+               setRedirect(true);
+            };
          }
          else {
+            console.log(`${name} has join the room ${room}`);
             console.log('successfully join');
          }
       });
@@ -77,7 +80,12 @@ const Chat = () => {
       if(message) {
          socket.emit('sendMessage', message, (err) => {
             if(err) {
-               return alert(err);
+               setMessage('');
+               if(window.confirm(err)) {
+                  setRedirect(true);
+                  return;
+               };
+               return;
             }
             setMessage('');
          })
@@ -88,6 +96,7 @@ const Chat = () => {
 
    return (
       <>
+         {redirect && <Navigate to="/" replace={true}/>}
          <div className="chatContainer">
             <div className="chatInnerContainer">
                <ChatPage room={room} users={users}/>

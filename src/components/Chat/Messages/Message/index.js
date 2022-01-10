@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactEmoji from 'react-emoji'
 
 import './index.css'
 
@@ -13,14 +14,14 @@ const index = ({ message, name}) => {
    return isSentByCurrentUser ? (
      <div className="messageContainer right">
        <div className="messageBox">
-         <p className="messageText">{message.text}</p>
+         <p className="messageText">{ReactEmoji.emojify(message.text)}</p>
        </div>
        <p className="sentText">you</p>
      </div>
    ) : (
      <div className="messageContainer left">
        <div className="messageBox">
-         <p className="messageText">{message.text}</p>
+         <p className="messageText">{ReactEmoji.emojify(message.text)}</p>
        </div>
        <p className="sentText">{message.user}</p>
      </div>

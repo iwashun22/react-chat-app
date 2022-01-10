@@ -1,5 +1,5 @@
 .messageArea {
-   height: 65vh;
+   height: 45vh;
    margin-top: 20px;
    overflow-y: scroll;
    background-color: var(--background-color5);

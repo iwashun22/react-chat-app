@@ -5,6 +5,19 @@
    flex-direction: column;
 }
 
+.joinOuterContainer {
+   width: 85vw;
+   height: 70vh;
+   border-radius: 50px;
+   background-color: var(--background-color3);
+   padding: 20px;
+}
+
+.joinInnerContainer {
+   width: 100%;
+   height: 100%;
+}
+
 .joinInnerContainer input {
    outline: none;
    text-align: center;

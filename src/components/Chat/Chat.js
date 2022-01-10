@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 
 import ChatPage from './ChatPage'
 import Input from './Input'
-import Messages from './Messages'
+import Messages, { scrollDown } from './Messages'
 
 import './Chat.css'
 
@@ -47,11 +47,21 @@ const Chat = () => {
 
    useEffect(() => {
       socket.on('message', (message) => {
-         if(messages.length >= 10) {
-            const [removed, ...rest] = messages;
-            setMessages([...rest, message]);
-         }
-         else setMessages([...messages, message]);
+         new Promise((fulfill, reject) => {
+            if(messages.length >= 10) {
+               const [removed, ...rest] = messages;
+               setMessages([...rest, message]);
+            }
+            else {
+               setMessages([...messages, message])
+            };
+
+            fulfill();
+         })
+         // scroll down
+         .then(() => {
+            scrollDown();
+         })
       })
    }, [messages]);
 

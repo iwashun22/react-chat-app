@@ -90,7 +90,7 @@ const Chat = () => {
             setMessage('');
          })
       }
-   });
+   }, []);
 
    // console.log(message, messages);
 

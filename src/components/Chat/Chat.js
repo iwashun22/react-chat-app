@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation, Navigate } from 'react-router-dom'
 import queryString from 'query-string';
 import io from 'socket.io-client';
@@ -16,7 +16,7 @@ const Chat = () => {
    const [redirect, setRedirect] = useState(false);
    const [room, setRoom] = useState('');
    const [users, setUsers] = useState([]);
-   const [message, setMessage] = useState('');
+   const messageBox = useRef(null);
    const [messages, setMessages] = useState([]);
    const location = useLocation();
    const ENDPOINT = 'localhost:8282';
@@ -77,20 +77,20 @@ const Chat = () => {
 
    const sendMessage = useCallback((e) => {
       e.preventDefault();
+      const message = messageBox.current.value;
       if(message) {
          socket.emit('sendMessage', message, (err) => {
             if(err) {
-               setMessage('');
                if(window.confirm(err)) {
                   setRedirect(true);
                   return;
                };
                return;
             }
-            setMessage('');
          })
+         messageBox.current.value = '';
       }
-   }, []);
+   }, [messages]);
 
    // console.log(message, messages);
 
@@ -101,7 +101,7 @@ const Chat = () => {
             <div className="chatInnerContainer">
                <ChatPage room={room} users={users}/>
                <Messages messages={messages} name={name}/>
-               <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
+               <Input messageBox={messageBox} sendMessage={sendMessage}/>
             </div>
          </div>
       </>
